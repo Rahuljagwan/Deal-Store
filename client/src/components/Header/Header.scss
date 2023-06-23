@@ -1,0 +1,155 @@
+@import "../../css-config/mixins.scss";
+
+.main-header {
+  width: 100%;
+  padding: 0 20px;
+  z-index: 99;
+  background-color: #212121;
+  color: white;
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  @include md {
+    padding: 0 40px;
+  }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include md {
+      height: 75px;
+    }
+  }
+  .left {
+    list-style-type: none;
+    display: none;
+    gap: 25px;
+    @include md {
+      display: flex;
+    }
+    li {
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  .center {
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    @include md {
+      font-size: 34px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    h1 {
+      margin: 0;
+      padding: 0;
+
+      color: #fff;
+      font-size: 30px;
+      display: flex;
+    }
+    span {
+      display: table-cell;
+      margin: 0;
+      padding: 0;
+      animation: animate 2s linear infinite;
+    }
+    span:nth-child(1) {
+      animation-delay: 0s;
+    }
+    span:nth-child(2) {
+      animation-delay: 0.25s;
+    }
+    span:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+    span:nth-child(4) {
+      animation-delay: 0.75s;
+    }
+    span:nth-child(5) {
+      animation-delay: 1s;
+    }
+    span:nth-child(6) {
+      animation-delay: 1.25s;
+    }
+    span:nth-child(7) {
+      animation-delay: 1.5s;
+    }
+    @keyframes animate {
+      0%,
+      100% {
+        color: #fff;
+        filter: blur(1px);
+        text-shadow: 0 0 10px #4a00e0, 0 0 20px #00b3ff, 0 0 40px #4a00e0,
+          0 0 80px #fff, 0 0 120px #4a00e0, 0 0 200px #00b3ff, 0 0 300px #4a00e0,
+          0 0 400px #8e2de2;
+      }
+      5%,
+      95% {
+        color: #8e2de2;
+        filter: blur(0px);
+        text-shadow: none;
+      }
+    }
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @include md {
+      gap: 25px;
+    }
+    svg {
+      font-size: 20px;
+      cursor: pointer;
+      position: relative;
+      @include md {
+        font-size: 24px;
+      }
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    .cart-icon {
+      position: relative;
+      span {
+        min-width: 20px;
+        text-align: center;
+        background: #8e2de2;
+        padding: 2.5px;
+        position: absolute;
+        top: -5px;
+        right: -8px;
+        font-size: 12px;
+        line-height: 1;
+        border-radius: 10px;
+      }
+    }
+  }
+  &.sticky-header {
+    background-color: #212121;
+    color: white;
+    position: sticky;
+    top: 0;
+    transform: translateY(-60px);
+    animation: StickyHeader 0.3s ease forwards;
+  }
+}
+
+@keyframes StickyHeader {
+  0% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
